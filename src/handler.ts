@@ -26,7 +26,7 @@ export default (filenames: string[]) => {
     return {
       company: company.toUpperCase(),
       number,
-      disk: diskS ? (diskS.charCodeAt(0) - 64) : Number(diskD),
+      disk: diskS ? (diskS.toUpperCase().charCodeAt(0) - 64) : Number(diskD),
       keyword,
       index,
       pre: basename.substring(0, index),
