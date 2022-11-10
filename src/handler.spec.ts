@@ -69,6 +69,40 @@ test('with disk number #1', (t) => {
   }])
 })
 
+test('with disk word #0', (t) => {
+  const filename = 'SSIS123A.mp4'
+  const list = [filename]
+  t.deepEqual(handler(list), [{
+    company: 'SSIS',
+    number: '123',
+    disk: 1,
+    pre: '',
+    post: '',
+    keyword: 'SSIS123A',
+    index: 0,
+    base: 'SSIS123A',
+    ext: 'mp4',
+    raw: filename,
+  }])
+})
+
+test('with disk word #1', (t) => {
+  const filename = 'SSIS123-C.mp4'
+  const list = [filename]
+  t.deepEqual(handler(list), [{
+    company: 'SSIS',
+    number: '123',
+    disk: 3,
+    pre: '',
+    post: '',
+    keyword: 'SSIS123-C',
+    index: 0,
+    base: 'SSIS123-C',
+    ext: 'mp4',
+    raw: filename,
+  }])
+})
+
 test('with url #1', (t) => {
   const filename = 'abc.org@SSIS123.mp4'
   const list = [filename]

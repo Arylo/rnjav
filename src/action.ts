@@ -6,7 +6,8 @@ import { IStrust } from './types'
 import targetPath from './utils/targetPath'
 
 export const action = async (item: IStrust) => {
-  const targetName = `${item.company}-${item.number}.${item.ext}`
+  const diskName = item.disk > 0 ? `-CD${item.disk}` : ''
+  const targetName = `${item.company}-${item.number}${diskName}.${item.ext}`
   if (targetName === item.raw) return
   const question = [
     'Rename `',

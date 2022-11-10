@@ -2,7 +2,12 @@ import path from 'path'
 import { COMPANY } from './constant'
 import { IStrust } from './types'
 
-const regexp = new RegExp(`(?<company>${COMPANY.join('|')})[-_]?(?<number>\\d+)(?:-(?:CD)?(?<disk>\\d)\\b)?`, 'i')
+const regexp = new RegExp([
+  `(?<company>${COMPANY.join('|')})`,
+  '[-_]?',
+  '(?<number>\\d+)',
+  '(?:[-_]?((CD)?(?<diskD>\\d)|(?<diskS>[A-D]))\\b)?',
+].join(''), 'i')
 
 export default (filenames: string[]) => {
   const results = filenames.map<IStrust|undefined>((filename) => {
@@ -15,12 +20,13 @@ export default (filenames: string[]) => {
     const {
       company,
       number,
-      disk = 0,
+      diskD = 0,
+      diskS,
     } = matches.groups || {}
     return {
       company: company.toUpperCase(),
       number,
-      disk: Number(disk),
+      disk: diskS ? (diskS.charCodeAt(0) - 64) : Number(diskD),
       keyword,
       index,
       pre: basename.substring(0, index),

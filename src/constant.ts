@@ -11,9 +11,9 @@ export const COMPANY = [
   'NNPJ', 'SAME', 'YMDS', 'SUPA', 'SDMUA', 'BAB',
   'BUR', 'CJOD', 'DORI', 'HONB', 'FSAN', 'LLDV',
   'STCV', 'DOCP', 'BDSR', 'SDNM', 'DANDY', 'AMBI',
-  'MILK', 'NKKD', 'MOGI', 'HEY', 'IGIG', 'HOMA',
+  'MILK', 'NKKD', 'MOGI', 'IGIG', 'HOMA',
   'NHDTB', 'HEZ', 'HODV', 'CWP',
-  'CT', 'DLDSS', 'MXX', 'PT',
+  'CT', 'DLDSS', 'MXX', 'PT', 'MXGS', 'PKPT',
   'BAHP', 'GS', 'HUNBL', 'IMO', 'JKTU', 'JUKF',
   'KTRA', 'LOL', 'MDBK', 'MIST', 'SCOP', 'SDDE', 'SNTX',
 ].sort((a, b) => b.length - a.length)
