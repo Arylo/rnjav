@@ -11,11 +11,14 @@ export const COMPANY = [
   'NNPJ', 'SAME', 'YMDS', 'SUPA', 'SDMUA', 'BAB',
   'BUR', 'CJOD', 'DORI', 'HONB', 'FSAN', 'LLDV',
   'STCV', 'DOCP', 'BDSR', 'SDNM', 'DANDY', 'AMBI',
-  'MILK', 'NKKD', 'MOGI', 'IGIG', 'HOMA',
-  'NHDTB', 'HEZ', 'HODV', 'CWP',
+  'MILK', 'NKKD', 'MOGI', 'IGIG', 'HOMA', 'GNAB',
+  'NHDTB', 'HEZ', 'HODV', 'CWP', 'HNDS', 'HOIZ',
   'CT', 'DLDSS', 'MXX', 'PT', 'MXGS', 'PKPT',
   'BAHP', 'GS', 'HUNBL', 'IMO', 'JKTU', 'JUKF',
-  'KTRA', 'LOL', 'MDBK', 'MIST', 'SCOP', 'SDDE', 'SNTX',
+  'KTRA', 'LOL', 'MDBK', 'MIST', 'SCOP', 'SDDE',
+  'SHIND', 'BAGR', 'PPPE', 'SDMU', 'STP', 'EMOT',
+  'SNTX', 'IPTD', 'XVSR', 'EMAZ', 'T', 'DVRT',
+  'HALT', 'KWBD', 'TPIN', 'SDMF', 'MIFD',
 ].sort((a, b) => b.length - a.length)
 
 export const SUFFIX = [
