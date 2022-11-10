@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "eslint-config-tencent",
+    "eslint-config-tencent/ts"
+  ],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/semi": ["error", "never"]
+  }
+}
