@@ -31,7 +31,7 @@ export default (filenames: string[]) => {
       index,
       pre: basename.substring(0, index),
       post: basename.substring(index + keyword.length),
-      ext: extname.replace('.', ''),
+      ext: extname.replace('.', '').toLowerCase(),
       base: basename,
       raw: filename,
     }
