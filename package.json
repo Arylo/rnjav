@@ -21,6 +21,9 @@
     "jav",
     "rename"
   ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "author": "AryloYeung <arylo.open@gmail.com>",
   "license": "MIT",
   "bugs": {
