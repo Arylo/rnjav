@@ -18,7 +18,8 @@ export const COMPANY = [
   'KTRA', 'LOL', 'MDBK', 'MIST', 'SCOP', 'SDDE',
   'SHIND', 'BAGR', 'PPPE', 'SDMU', 'STP', 'EMOT',
   'SNTX', 'IPTD', 'XVSR', 'EMAZ', 'T', 'DVRT',
-  'HALT', 'KWBD', 'TPIN', 'SDMF', 'MIFD',
+  'HALT', 'KWBD', 'TPIN', 'SDMF', 'MIFD', 'MFC',
+  'DASD', 'NFD', 'PED',
 ].sort((a, b) => b.length - a.length)
 
 export const SUFFIX = [
