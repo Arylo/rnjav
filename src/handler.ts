@@ -6,7 +6,7 @@ const regexp = new RegExp([
   `(?<company>${COMPANY.join('|')})`,
   '[-_]?',
   '(?<number>\\d+)',
-  '(?:[-_]?((CD)?(?<diskD>\\d)|(?<diskS>[A-D]))\\b)?',
+  '(?:[-_]?((CD)?(?<diskD>\\d)|(?<diskS>[A-B]))\\b)?',
 ].join(''), 'i')
 
 export default (filenames: string[]) => {
