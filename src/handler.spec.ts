@@ -92,10 +92,10 @@ test('with disk word #1', (t) => {
   t.deepEqual(handler(list), [{
     company: 'SSIS',
     number: '123',
-    disk: 3,
+    disk: 0,
     pre: '',
-    post: '',
-    keyword: 'SSIS123-C',
+    post: '-C',
+    keyword: 'SSIS123',
     index: 0,
     base: 'SSIS123-C',
     ext: 'mp4',
