@@ -10,5 +10,22 @@ jobs:
           node-version: 14
           cache: 'npm'
       - run: npm ci
+      - run: npm run lint
       - run: npm run build
       - run: npm t
+      - id: branch-name
+        uses: tj-actions/branch-names@v6
+      - uses: tj-actions/changed-files@v34
+        id: changes
+        with:
+          files: |
+              src/**
+              bin/**
+              !**/*.spec.ts
+      - if: steps.branch-name.outputs.is_default == 'true' && steps.changes.outputs.any_changed == 'true'
+        name: Auto Release
+        run: |
+          git config user.name "GitHubActions"
+          git config user.email "<>"
+          npm run release
+          git push --follow-tags
