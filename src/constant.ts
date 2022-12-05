@@ -19,8 +19,12 @@ export const COMPANY = [
   'SHIND', 'BAGR', 'PPPE', 'SDMU', 'STP', 'EMOT',
   'SNTX', 'IPTD', 'XVSR', 'EMAZ', 'T', 'DVRT',
   'HALT', 'KWBD', 'TPIN', 'SDMF', 'MIFD', 'MFC',
-  'DASD', 'NFD', 'PED', 'CW',
-].sort((a, b) => b.length - a.length)
+  'DASD', 'NFD', 'PED', 'CW', 'SNIS', 'ABS',
+  'CHN', 'INST', 'KUN', 'SVVRT', 'HTBET', 'RCT',
+  'HGOT',
+]
+  .map(a => a.toUpperCase())
+  .sort((a, b) => b.length - a.length)
 
 export const SUFFIX = [
   'mp4', 'mkv', 'iso',
