@@ -22,6 +22,7 @@ export const COMPANY = [
   'DASD', 'NFD', 'PED', 'CW', 'SNIS', 'ABS',
   'CHN', 'INST', 'KUN', 'SVVRT', 'HTBET', 'RCT',
   'HGOT', 'FERA', 'MTALL', 'INSTC', 'NXG', 'RCTD',
+  'FANX', 'SW', 'FTHTD', 'AVOP',
 ]
   .map(a => a.toUpperCase())
   .sort((a, b) => b.length - a.length)
