@@ -27,5 +27,5 @@ jobs:
         run: |
           git config user.name "GitHubActions"
           git config user.email "<>"
-          npm run release
+          npm run release -- --release-as patch
           git push --follow-tags
