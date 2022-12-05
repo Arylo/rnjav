@@ -27,6 +27,6 @@ export const COMPANY = [
   .map(a => a.toUpperCase())
   .sort((a, b) => b.length - a.length)
 
-export const SUFFIX = [
+export const VIDEO_SUFFIX = [
   'mp4', 'mkv', 'iso',
 ]

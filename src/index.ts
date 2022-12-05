@@ -4,8 +4,10 @@ import companyFilterFn from './filters/company'
 import targetPath from './utils/targetPath'
 import handler from './handler'
 import action from './action'
+import pkgInfo from '../package.json'
 
 export default async () => {
+  console.log(`Running ${pkgInfo.name}@v${pkgInfo.version}...`)
   const filenames = fs.readdirSync(targetPath.get())
     .filter(item => !/^~\.@/.test(item))
     .filter(suffixFilterFn)

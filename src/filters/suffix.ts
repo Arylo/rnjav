@@ -1,6 +1,6 @@
-import { SUFFIX } from '../constant'
+import { VIDEO_SUFFIX } from '../constant'
 
-const regexp = new RegExp(`\\.(${SUFFIX.join('|')})$`, 'i')
+const regexp = new RegExp(`\\.(${VIDEO_SUFFIX.join('|')})$`, 'i')
 
 export const suffixFilterFn = (item: string) => regexp.test(item)
 
