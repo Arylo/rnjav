@@ -1,6 +1,6 @@
 {
   "name": "rnjav",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Rename the videos",
   "main": "dist/index.js",
   "bin": {
