@@ -23,5 +23,5 @@ export const COMPANY = [
 ].sort((a, b) => b.length - a.length)
 
 export const SUFFIX = [
-  'mp4', 'mkv',
+  'mp4', 'mkv', 'iso',
 ]
