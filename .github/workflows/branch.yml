@@ -20,6 +20,8 @@ jobs:
         id: changes
         with:
           files: |
+              tsconfig.json
+              tsconfig.prod.json
               src/**
               bin/**
               static/**

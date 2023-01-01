@@ -1,10 +1,12 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "declaration": false,
-    },
-    "exclude": [
-        "test/**",
-        "**/*.spec.ts"
-    ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+  },
+  "exclude": [
+    "test/**",
+    "bin/**",
+    "etc/**",
+    "**/*.spec.ts"
+  ]
 }
