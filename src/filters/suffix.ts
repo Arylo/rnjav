@@ -1,7 +1,7 @@
 import { VIDEO_SUFFIX } from '../constant'
 
-const regexp = new RegExp(`\\.(${VIDEO_SUFFIX.join('|')})$`, 'i')
+const regexp = new RegExp(`\\.(${VIDEO_SUFFIX.map(s => s.toLowerCase()).join('|')})$`)
 
-export const suffixFilterFn = (item: string) => regexp.test(item)
+export const filter = (item: string) => regexp.test(item.toLowerCase())
 
-export default suffixFilterFn
+export default filter

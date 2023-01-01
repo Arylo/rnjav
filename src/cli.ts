@@ -1,5 +1,13 @@
 import main from './index'
-import targetPath from './utils/targetPath'
+import displayBanner from './processes/displayBanner'
+import helpProcess from './processes/helpProcess'
+import { getCliParams } from './utils/getCliParams'
 
-targetPath.set(process.argv[2] || '')
-main()
+displayBanner()
+
+const params = getCliParams()
+if (params.help) {
+  helpProcess()
+} else {
+  main()
+}

@@ -9,4 +9,6 @@ export interface IStrust {
   ext: string,
   base: string,
   raw: string,
+  path: string,
+  target: string,
 }

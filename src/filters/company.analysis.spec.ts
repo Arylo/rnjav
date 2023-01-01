@@ -1,10 +1,12 @@
+import os from 'os'
+import path from 'path'
 import test from 'ava'
-import handler from './handler'
+import { analysis } from './company'
 
-test('Default #0', (t) => {
+test('Analysis Default #0', (t) => {
   const filename = 'SSIS123.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 0,
@@ -15,13 +17,15 @@ test('Default #0', (t) => {
     base: 'SSIS123',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123.mp4',
+  })
 })
 
-test('Default #1', (t) => {
+test('Analysis Default #1', (t) => {
   const filename = 'SSIS-123.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 0,
@@ -32,13 +36,15 @@ test('Default #1', (t) => {
     base: 'SSIS-123',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123.mp4',
+  })
 })
 
-test('with disk number #0', (t) => {
+test('Analysis with disk number #0', (t) => {
   const filename = 'SSIS123-1.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 1,
@@ -49,13 +55,15 @@ test('with disk number #0', (t) => {
     base: 'SSIS123-1',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123-CD1.mp4',
+  })
 })
 
-test('with disk number #1', (t) => {
+test('Analysis with disk number #1', (t) => {
   const filename = 'SSIS123-CD1.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 1,
@@ -66,13 +74,15 @@ test('with disk number #1', (t) => {
     base: 'SSIS123-CD1',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123-CD1.mp4',
+  })
 })
 
-test('with disk word #0', (t) => {
+test('Analysis with disk word #0', (t) => {
   const filename = 'SSIS123A.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 1,
@@ -83,13 +93,15 @@ test('with disk word #0', (t) => {
     base: 'SSIS123A',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123-CD1.mp4',
+  })
 })
 
-test('with disk word #1', (t) => {
+test('Analysis with disk word #1', (t) => {
   const filename = 'SSIS123-C.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 0,
@@ -100,13 +112,15 @@ test('with disk word #1', (t) => {
     base: 'SSIS123-C',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123.mp4',
+  })
 })
 
-test('with url #1', (t) => {
+test('Analysis with url #1', (t) => {
   const filename = 'abc.org@SSIS123.mp4'
-  const list = [filename]
-  t.deepEqual(handler(list), [{
+  const filepath = path.resolve(os.tmpdir(), filename)
+  t.deepEqual(analysis(filepath), {
     company: 'SSIS',
     number: '123',
     disk: 0,
@@ -117,6 +131,7 @@ test('with url #1', (t) => {
     base: 'abc.org@SSIS123',
     ext: 'mp4',
     raw: filename,
-  }])
+    path: os.tmpdir(),
+    target: 'SSIS-123.mp4',
+  })
 })
-
