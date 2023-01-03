@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import chalk from 'chalk'
 import findUp from '../src/utils/findUp'
 import getCliParams from '../src/utils/getCliParams'
 
@@ -12,8 +13,10 @@ if (basePath) {
   const oldSize = content.length
   const args = getCliParams()['--']
   for (const c of args) {
-    console.log(`Add Company \`${c}\``)
-    !content.includes(c) && content.push(c)
+    const exist = content.includes(c.toUpperCase())
+    const status = !exist ? chalk.green('PASS') : chalk.blue('SKIP')
+    console.log(`${status} Add Company \`${c}\``)
+    !exist && content.push(c)
   }
   const newContent = [...new Set(content.map(c => c.toUpperCase()))]
   console.log(`Old Size: ${oldSize}`)
