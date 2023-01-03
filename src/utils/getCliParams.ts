@@ -11,10 +11,15 @@ const options = {
       type: Boolean,
       default: false,
     },
+    version: {
+      type: Boolean,
+      default: false,
+    },
   },
   aliases: {
     h: 'help',
     y: 'yes',
+    v: 'version',
   },
 }
 
