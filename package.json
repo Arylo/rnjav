@@ -11,7 +11,8 @@
     "build": "tsc -p tsconfig.prod.json",
     "test": "c8 ava",
     "lint": "eslint --cache --ext=.ts src",
-    "release": "standard-version"
+    "release": "standard-version",
+    "add": "ts-node etc/addCompany.ts"
   },
   "repository": {
     "type": "git",
