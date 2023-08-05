@@ -1,28 +1,35 @@
 import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
-import findUp from '../src/utils/findUp'
 import getCliParams from '../src/utils/getCliParams'
+import { cd, ls } from '@js-sh/js-sh'
 
-const name = 'static/company.json'
-const basePath = findUp(name, { cwd: __dirname })
+const TARGET_FILE_NAME = 'static/company.json'
 
-if (basePath) {
-  const filepath = path.resolve(basePath, name)
-  const content: string[] = JSON.parse(fs.readFileSync(filepath, 'utf-8'))
-  const oldSize = content.length
-  const args = getCliParams()['--']
-  args.forEach((c, index) => {
-    const exist = content.includes(c.toUpperCase())
-    const status = !exist ? chalk.green('PASS') : chalk.blue('SKIP')
-    console.log(`${displayNumber(index + 1, args.length)} ${status} Add Company \`${c}\``)
-    !exist && content.push(c)
-  })
-  const newContent = [...new Set(content.map(c => c.toUpperCase()))]
-  console.log(`Old Size: ${oldSize}`)
-  console.log(`New Size: ${newContent.length}`)
-  fs.writeFileSync(filepath, JSON.stringify(newContent, null, 2), 'utf-8')
-}
+const newList: string[] = []
+const args = getCliParams()['--']
+args.forEach((arg) => {
+  newList.push(...arg.split(/,/).filter(Boolean))
+})
+if (!newList.length) process.exit(0)
+
+cd(path.resolve(__dirname, '..'))
+
+const targetFiles = ls(TARGET_FILE_NAME)
+if (!targetFiles.length) process.exit(0)
+const targetFile = targetFiles[0]
+const content: string[] = JSON.parse(fs.readFileSync(targetFile, 'utf-8'))
+const oldSize = content.length
+newList.forEach((c, index) => {
+  const exist = content.includes(c.toUpperCase())
+  const status = !exist ? chalk.green('PASS') : chalk.blue('SKIP')
+  console.log(`${displayNumber(index + 1, args.length)} ${status} Add Company \`${c}\``)
+  content.push(c.toUpperCase())
+})
+const newContent = [...new Set(content)]
+console.log(`Old Size: ${oldSize}`)
+console.log(`New Size: ${newContent.length}`)
+fs.writeFileSync(targetFile, JSON.stringify(newContent, null, 2), 'utf-8')
 
 function displayNumber(current: number, total: number) {
   const { length } = total.toString()
